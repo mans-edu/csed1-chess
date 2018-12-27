@@ -116,8 +116,6 @@ public class JChessPanel extends JPanel {
         addMouseListener(mouseListner);
         addMouseMotionListener(mouseMotionListner);
 
-
-
         mouseListner.mouseMotionListener = mouseMotionListner;
         //mouseMotionListner.mouseListner = mouseListner;
     }

@@ -20,7 +20,7 @@ public class ChessPiece {
         m_PlayerID = playerID;
         m_Type = pieceType;
 
-        m_Image = ImageFactory.GetImage(GetImageIdentifier(m_Type, m_PlayerID));
+        m_Image = ImageFactory.GetImage(getClass().getResource(GetImageIdentifier(m_Type, m_PlayerID)));
     }
 
     public int getPlayerID() {
@@ -71,6 +71,6 @@ public class ChessPiece {
     }
 
     protected static String GetImageIdentifier(PieceType pieceType, int playerID) {
-        return String.format("resources/%s_%s.png" , GetPlayerIdentifier(playerID), GetPieceIdentifier(pieceType));
+        return String.format("/resources/%s_%s.png" , GetPlayerIdentifier(playerID), GetPieceIdentifier(pieceType));
     }
 }

@@ -3,18 +3,19 @@ package edu.eg.csed.mans.chess;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ImageFactory {
-    private static HashMap<String, Image> s_Images;
-    private static ArrayList<String> s_InvalidPathnames;
+    private static HashMap<URL, Image> s_Images;
+    private static ArrayList<URL> s_InvalidPathnames;
     static { // static initializer
         s_Images = new HashMap<>();
         s_InvalidPathnames = new ArrayList<>();
     }
 
-    public static Image GetImage(String pathname) {
+    public static Image GetImage(URL pathname) {
         if (s_Images.containsKey(pathname)) {
             return s_Images.get(pathname);
         } else {
@@ -39,9 +40,9 @@ public class ImageFactory {
         }
     }
 
-    private static Image LoadImage(String pathname) {
+    private static Image LoadImage(URL pathname) {
         try {
-            return ImageIO.read(new File(pathname));
+            return ImageIO.read(pathname);
         } catch (Throwable e) {
             return null;
         }
